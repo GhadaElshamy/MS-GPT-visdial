@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8c2ed94a-8ac1-4c71-aeaf-5ed0a61c38a6" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="2OMzvh9Rjl4pVAadBhEmr0ZiDaD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/config" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\MS-Ref\codes\gst-visdial-master\config" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8c2ed94a-8ac1-4c71-aeaf-5ed0a61c38a6" name="Default Changelist" comment="" />
+      <created>1681385470608</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681385470608</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="170" y="9" key="SettingsEditor" timestamp="1684233876565">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="170" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1684233876565" />
+    <state x="390" y="152" width="586" height="424" key="find.popup" timestamp="1683325297247">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="390" y="152" width="586" height="424" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1683325297247" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1683325284742">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1683325284742" />
+  </component>
+</project>
