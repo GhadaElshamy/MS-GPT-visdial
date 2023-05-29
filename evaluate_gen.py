@@ -7,6 +7,7 @@ from dataloader.dataloader_visdial_gen import VisdialDataset
 
 from models.visual_dialog_encoder import VisualDialogEncoder
 from models.visual_dialog_decoder import VisualDialogDecoder
+from models.visual_dialog_decoder_gpt import GPTVisualDialogDecoder
 from models.visual_dialog_model import EncoderDecoderModel
 from utils.logger import Logger
 
@@ -174,7 +175,15 @@ if __name__ == '__main__':
     params['device'] = device
 
     dialog_encoder = VisualDialogEncoder(params)
-    dialog_decoder = VisualDialogDecoder(params)
+    # dialog_decoder = VisualDialogDecoder(params)
+
+    #TODO Choose the required decoder
+    dialog_decoder = None
+    if params['dec_model'] == 'gpt2':
+        dialog_decoder = GPTVisualDialogDecoder(params)
+    else:
+        dialog_decoder = VisualDialogDecoder(params)
+
     # share embedding layers
     dialog_decoder.decoder.bert.embeddings = dialog_encoder.bert_pretrained.bert.embeddings
     model = EncoderDecoderModel(params, dialog_encoder, dialog_decoder).to(device)
