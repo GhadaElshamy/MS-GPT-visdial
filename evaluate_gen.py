@@ -27,7 +27,7 @@ def evaluate(model, dataloader, params, eval_batch_size, mode='vd_eval_val'):
     model.eval()
     batch_idx = 0
     with torch.no_grad():
-        batch_size = 500
+        batch_size = 200
         print("batch size for evaluation", batch_size)
         for epoch_id, _, batch in batch_iter(dataloader, params):
             if epoch_id == 1:
@@ -185,7 +185,7 @@ if __name__ == '__main__':
         dialog_decoder = VisualDialogDecoder(params)
 
     # share embedding layers
-    dialog_decoder.decoder.bert.embeddings = dialog_encoder.bert_pretrained.bert.embeddings
+    # dialog_decoder.decoder.bert.embeddings = dialog_encoder.bert_pretrained.bert.embeddings
     model = EncoderDecoderModel(params, dialog_encoder, dialog_decoder).to(device)
     model = nn.DataParallel(model, params["gpu_ids"]) 
 

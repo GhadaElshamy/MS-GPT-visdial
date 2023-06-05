@@ -69,7 +69,7 @@ def read_command_line(argv=None):
     parser.add_argument('-lr',default=2e-5,type=float,help='learning rate')
     parser.add_argument('-image_lr',default=2e-5,type=float,help='learning rate for vision params')
     parser.add_argument('-overfit', action='store_true', help='overfit for debugging')
-    parser.add_argument('-continue_training', default=False, action='store_true', help='continue training')
+    parser.add_argument('-continue_training', default=True, action='store_true', help='continue training')
     parser.add_argument('-num_train_samples',default=0,type=int, help='number of train samples, set 0 to include all')
     parser.add_argument('-num_val_samples',default=0, type=int, help='number of val samples, set 0 to include all')
     parser.add_argument('-num_options',default=100, type=int, help='number of options to use. Max: 100 Min: 2')

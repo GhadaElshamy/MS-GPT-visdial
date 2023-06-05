@@ -174,6 +174,7 @@ class NDCG(object):
         self._ndcg_numerator += sum(batch_ndcg)
 
     def _dcg(self, rankings: torch.Tensor, relevance: torch.Tensor):
+        relevance = relevance.to(torch.device('cuda'))
         sorted_relevance = relevance[rankings].cpu().float()
         discounts = torch.log2(torch.arange(len(rankings)).float() + 2)
         return torch.sum(sorted_relevance / discounts, dim=-1)
