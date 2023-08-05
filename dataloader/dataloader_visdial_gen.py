@@ -485,8 +485,15 @@ class VisdialDataset(data.Dataset):
             tokenized_caption = self.tokenizer.encode(dialog['caption'])
             context_utterance.append(tokenized_caption)
 
-            #tokenized_question = self.tokenizer.encode(cur_questions[dialog['dialog'][0]['question']])
-            #context_utterance.append(tokenized_question)
+            for rnd, utterance in enumerate(dialog['dialog']):
+
+                all_questions = []
+
+                tokenized_question = self.tokenizer.encode(cur_questions[utterance['question']])
+                all_questions.append(tokenized_question)
+
+            # tokenized_question = self.tokenizer.encode(cur_questions[dialog['dialog'][0]['question']])
+            # context_utterance.append(tokenized_question)
 
 
             start_segment = 1
@@ -503,6 +510,7 @@ class VisdialDataset(data.Dataset):
             dec_input_ids = torch.ones((1), dtype=torch.long) * self.CLS
             dec_att_masks = (dec_input_ids!=0).float()
 
+            item['tokenized_questions'] = all_questions
             item['enc_input_ids'] = enc_input_ids
             item['enc_segments'] = enc_segments
             item['enc_sep_indices'] = enc_sep_indices
