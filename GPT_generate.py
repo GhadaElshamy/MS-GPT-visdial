@@ -242,7 +242,8 @@ if __name__ == '__main__':
 
                 imgid = batch["image_id"][j].item()
                 url = image_id_to_url[str(imgid)]
-                cap = url_to_cap[url]
+                # cap = url_to_cap[url]
+                cap = batch['caption']
                         
                 gen_data_json.append(
                     {
@@ -257,7 +258,8 @@ if __name__ == '__main__':
                             }
                             for k in range(num_round)
                         ]
-                    }    
+                    }
+                    print(f"json file = {gen_data_json[k][j]}")
                 )
     json.dump(gen_data_json, open(os.path.join(params['save_path'], params['save_name']), "w"))
 

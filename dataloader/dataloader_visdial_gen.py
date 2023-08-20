@@ -480,6 +480,7 @@ class VisdialDataset(data.Dataset):
             item['enc_image_loc'] = spatials
             item['enc_image_mask'] = image_mask
             item['image_id'] = torch.LongTensor([img_id])
+            item['caption'] = dialog['caption']
 
             context_utterance = []
             tokenized_caption = self.tokenizer.encode(dialog['caption'])
