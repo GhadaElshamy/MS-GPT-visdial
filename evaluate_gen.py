@@ -139,6 +139,8 @@ def evaluate(model, dataloader, params, eval_batch_size, mode='vd_eval_val'):
             if params['vd_version'] == "1.0":
                 all_metrics.update(ndcg.retrieve(reset=True))
             for metric_name, metric_value in all_metrics.items():
+                print(f"{metric_name}: {metric_value}")
+            for metric_name, metric_value in all_metrics.items():
                 logger.write(f"{metric_name}: {metric_value}")
     return ranks_json
 
