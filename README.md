@@ -1,26 +1,5 @@
-Generative Self-Training for Visual Dialog
+Improving Visual Dialog Training Using Generative Pre-Trained Model
 ===========================================
-
-Pytorch Implementation for the paper:
-
-**[The Dialog Must Go On: Improving Visual Dialog via Generative Self-Training][1]** <br>
-[Gi-Cheon Kang][2], [Sungdong Kim][3]<sup>\*</sup>, [Jin-Hwa Kim][4]<sup>\*</sup>, [Donghyun Kwak][5]<sup>\*</sup>, and [Byoung-Tak Zhang][6]  (\* equal contribution) <br>
-**In CVPR 2023**
-
-## Overview
-<img src="gst_overview.gif" width="100%" align="middle"><br><br>
-
-Citation
------------------------------
-If you use this code or preprocessed data in your research, please consider citing:
-```bibtex
-@inproceedings{kang2023dialog,
-  title={The Dialog Must Go On: Improving Visual Dialog via Generative Self-Training},
-  author={Kang, Gi-Cheon and Kim, Sungdong and Kim, Jin-Hwa and Kwak, Donghyun and Zhang, Byoung-Tak},
-  booktitle={CVPR},
-  year={2023}
-}
-```
 
 ## Table of Contents
 * [Setup and Dependencies](#Setup-and-Dependencies)
@@ -38,15 +17,16 @@ If you use this code or preprocessed data in your research, please consider citi
 
 Setup and Dependencies
 ----------------------
-This code is implemented using PyTorch v1.7+, and provides out of the box support with CUDA 11+ and CuDNN 7+. Anaconda/Miniconda is the recommended to set up this codebase: <br>
+This code is implemented using PyTorch v1.7+ and uses single A100 GPU <br>
 
-1. Install Anaconda or Miniconda distribution based on Python3.8+ from their [downloads' site][7].
+1. Install Anaconda or Miniconda distribution based on Python3.8+ from their [downloads' site][7] or you can use google colab.
 2. Clone this repository and create an environment:
 
 ```shell
 git clone https://www.github.com/gicheonkang/gst-visdial
-conda env create -f env.yml
 
+#(in case you used conda/miniconda)
+conda env create -f env.yml
 # activate the environment and install all dependencies
 conda activate gst
 cd gst-visdial/
@@ -225,26 +205,20 @@ python inference.py
 
 Acknowledgements
 -----------------
-We use [VisDial-BERT][10] as reference code. Thanks!
+We use [gst_VisDial][10] as reference code.
 
 License
 -------
 MIT License
 
 
-[1]: https://arxiv.org/abs/2205.12502
-[2]: https://gicheonkang.com
-[3]: https://scholar.google.com/citations?user=xKrSnDoAAAAJ&hl=en
-[4]: http://wityworks.com
-[5]: https://scholar.google.com/citations?hl=en&user=MROzd8gAAAAJ
-[6]: https://bi.snu.ac.kr/~btzhang/
-[7]: https://conda.io/docs/user-guide/install/download.html
-[8]: https://arxiv.org/pdf/1611.08669.pdf
-[9]: https://arxiv.org/abs/2102.08981
-[10]: https://github.com/vmurahari3/visdial-bert
-[11]: https://eval.ai/web/challenges/challenge-page/518/overview
-[12]: https://openaccess.thecvf.com/content_cvpr_2018/CameraReady/1163.pdf
-[13]: https://hub.docker.com/r/airsplay/bottom-up-attention
-[14]: https://drive.google.com/file/d/1bayGomljWb6HeYDMTDKXrh0HackKtSlx/view
-[15]: https://visualdialog.org/data
+[1]: https://conda.io/docs/user-guide/install/download.html
+[2]: https://arxiv.org/pdf/1611.08669.pdf
+[3]: https://arxiv.org/abs/2102.08981
+[4]: https://github.com/vmurahari3/visdial-bert
+[5]: https://eval.ai/web/challenges/challenge-page/518/overview
+[6]: https://openaccess.thecvf.com/content_cvpr_2018/CameraReady/1163.pdf
+[7]: https://hub.docker.com/r/airsplay/bottom-up-attention
+[8]: https://drive.google.com/file/d/1bayGomljWb6HeYDMTDKXrh0HackKtSlx/view
+[9]: https://visualdialog.org/data
 
