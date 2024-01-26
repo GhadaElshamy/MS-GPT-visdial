@@ -485,18 +485,22 @@ class VisdialDataset(data.Dataset):
             context_utterance = []
             tokenized_caption = self.tokenizer.encode(dialog['caption'])
             context_utterance.append(tokenized_caption)
+            all_questions = []
 
             for rnd, utterance in enumerate(dialog['dialog']):
 
-                all_questions = []
+                # print('quesBefore={}'.format(cur_questions[utterance['question']]))
 
                 tokenized_question = self.tokenizer.encode(cur_questions[utterance['question']])
+                # tokenized_question = cur_questions[utterance['question']]
                 all_questions.append(tokenized_question)
+                # print(f'quesAfter={tokenized_question}')
 
             # tokenized_question = self.tokenizer.encode(cur_questions[dialog['dialog'][0]['question']])
             # context_utterance.append(tokenized_question)
 
 
+            
             start_segment = 1
             enc_input_ids, enc_segments, enc_sep_indices, _, enc_att_masks = encode_input(
                 context_utterance, 

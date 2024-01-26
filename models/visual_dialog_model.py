@@ -85,8 +85,8 @@ class EncoderDecoderModel(PreTrainedModel):
 
             for i in range(max_seq_len): 
                 decoder_outputs = self.decoder(
-                    decoder_input_ids=dec_input_ids,
-                    attention_mask=None,
+                    input_ids=dec_input_ids,
+                    attention_mask=dec_attention_mask,
                     encoder_hidden_states=enc_hidden_states,
                     encoder_attention_mask=enc_attention_mask
                 )

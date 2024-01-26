@@ -17,9 +17,11 @@ from utils.data_utils import batch_iter
 
 
 def decode_data(tokenizer, seq):
-    seq = seq.tolist()
+    if not isinstance(seq,list):
+      seq = seq.tolist()
     return [
-        tokenizer.decode(item, skip_special_tokens=True)    
+        tokenizer._convert_id_to_token(item) + " "
+        # tokenizer.decode(item, skip_special_tokens=True)    
         for item in seq
     ]
 
@@ -60,7 +62,7 @@ if __name__ == '__main__':
     )
     params['device'] = device
 
-    # assert params['start_path_q'] != "" and params['start_path_a'] != ""
+    
     # q_encoder = VisualDialogEncoder(params)
     # q_decoder = VisualDialogDecoder(params)
     # q_decoder.decoder.bert.embeddings = q_encoder.bert_pretrained.bert.embeddings
@@ -87,8 +89,8 @@ if __name__ == '__main__':
     max_seq_len = params['max_seq_len']
     gen_data_json = []
 
-    url_to_cap = json.load(open("./data/url_to_cap.json", "r"))
-    image_id_to_url = json.load(open("./data/image_id_to_url.json", "r"))
+    # url_to_cap = json.load(open("./data/url_to_cap.json", "r"))
+    # image_id_to_url = json.load(open("./data/image_id_to_url.json", "r"))
 
     with torch.no_grad():
         for epoch_id, idx, batch in batch_iter(dataloader, params):
@@ -230,8 +232,9 @@ if __name__ == '__main__':
                     enc_segments[iidx, start:end] = torch.ones(ans_len[iidx], dtype=torch.long).to(params['device'])
                 enc_att_mask = (enc_input_ids!=0).float()
                 enc_input_len += ans_len
-
-                txt_ques = decode_data(dataset.tokenizer, batch['tokenized_questions'][rnd])
+                # print(f'{rnd=}')
+                # print('ques={}'.format(batch['tokenized_questions']))
+                txt_ques = batch['tokenized_questions'][rnd]
                 txt_ans = decode_data(dataset.tokenizer, ans_ids)
                 ques_list.append(txt_ques)
                 ans_list.append(txt_ans)
@@ -241,26 +244,26 @@ if __name__ == '__main__':
                     continue
 
                 imgid = batch["image_id"][j].item()
-                url = image_id_to_url[str(imgid)]
+                # url = image_id_to_url[str(imgid)]
                 # cap = url_to_cap[url]
                 cap = batch['caption']
                         
                 gen_data_json.append(
                     {
                         "image_id": imgid,
-                        "url": url,
+                        "url": "",
                         "caption": cap,     
                         "dialog": [
                             {
-                                'question': ques_list[k][j],
-                                'answer': ans_list[k][j],
+                                'question': ques_list[k],
+                                'answer': ans_list[k],
                                 'answer_ppl': ppl_list[k][j].item()
                             }
                             for k in range(num_round)
                         ]
                     }
-                    print(f"json file = {gen_data_json[k][j]}")
                 )
+                # print(f"json file = {gen_data_json[k][j]}")
     json.dump(gen_data_json, open(os.path.join(params['save_path'], params['save_name']), "w"))
 
 
