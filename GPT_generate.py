@@ -10,7 +10,6 @@ from dataloader.dataloader_visdial_gen import VisdialDataset
 from torch.utils.data import DataLoader
 
 from models.visual_dialog_encoder import VisualDialogEncoder
-from models.visual_dialog_decoder import VisualDialogDecoder
 from models.visual_dialog_decoder_gpt import GPTVisualDialogDecoder
 from models.visual_dialog_model import EncoderDecoderModel
 from utils.data_utils import batch_iter

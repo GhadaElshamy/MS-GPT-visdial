@@ -2,7 +2,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
-from dataloader.dataloader_visdial_disc import VisdialDataset
 from dataloader.dataloader_visdial_gen import VisdialDataset
 
 from models.visual_dialog_encoder import VisualDialogEncoder
@@ -177,7 +176,6 @@ if __name__ == '__main__':
     params['device'] = device
 
     dialog_encoder = VisualDialogEncoder(params)
-    # dialog_decoder = VisualDialogDecoder(params)
 
     #TODO Choose the required decoder
     dialog_decoder = None
